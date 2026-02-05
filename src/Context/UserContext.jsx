@@ -45,10 +45,21 @@ function UserContext({children}) {
         takeCommand(transcript.toLowerCase())
     }
 
+    // Helper function to reliably open URLs in a new tab
+    function openUrl(url) {
+    const a = document.createElement('a'); // create a link element
+    a.href = url;                         // set the URL
+    a.target = "_blank";                  // open in new tab
+    a.rel = "noopener noreferrer";        // security best practice
+    document.body.appendChild(a);         // add to DOM
+    a.click();                             // simulate click
+    document.body.removeChild(a);         // remove from DOM
+}
+
     //Take command to open or visit (Eg: Youtube,google,etc.)
     function takeCommand(command) {
         if(command.includes("open") && command.includes("youtube")){
-            window.open("https://www.youtube.com/","_blank")
+            openUrl("https://www.youtube.com/")
             speak("opening youtube")
             setResponse(true)
             setPrompt("Opening Youtube...")
@@ -56,7 +67,7 @@ function UserContext({children}) {
                 setSpeaking(false)
             }, 5000);
         }else if(command.includes("open") && command.includes("google")){
-            window.open("https://www.google.com/","_blank")
+            openUrl("https://www.google.com/")
             speak("opening Google")
             setResponse(true)
             setPrompt("Opening Google...")
@@ -64,7 +75,7 @@ function UserContext({children}) {
                 setSpeaking(false)
             }, 5000);
         }else if(command.includes("open") && command.includes("gmail")){
-            window.open("https://www.gmail.com/","_blank")
+             openUrl("https://www.gmail.com/")
             speak("opening gmail")
             setResponse(true)
             setPrompt("Opening gmail...")
@@ -72,7 +83,7 @@ function UserContext({children}) {
                 setSpeaking(false)
             }, 5000);
         }else if(command.includes("open") && command.includes("whatsapp")){
-            window.open("https://www.whatsapp.com/","_blank")
+           openUrl("https://www.whatsapp.com/")
             speak("opening whatsapp")
             setResponse(true)
             setPrompt("Opening whatsapp...")
@@ -80,7 +91,7 @@ function UserContext({children}) {
                 setSpeaking(false)
             }, 5000);
         }else if(command.includes("open") && command.includes("instagram")){
-            window.open("https://www.instagram.com/","_blank")
+            openUrl("https://www.instagram.com/")
             speak("opening Instagram")
             setResponse(true)
             setPrompt("Opening Instagram...")
@@ -88,7 +99,7 @@ function UserContext({children}) {
                 setSpeaking(false)
             }, 5000);
         }else if(command.includes("open") && command.includes("linkedin")){
-            window.open("https://in.linkedin.com/","_blank")
+            openUrl("https://www.linkedin.com/")
             speak("opening linkedIn")
             setResponse(true)
             setPrompt("Opening linkedIn...")
