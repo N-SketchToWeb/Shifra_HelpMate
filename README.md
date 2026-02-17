@@ -38,6 +38,9 @@ If user says:
 -“Open YouTube” → Navigates to YouTube
 -“Open LinkedIn → Navigates to LinkedIn
 
+### Live Demo
+ https://virtualai-frontend.onrender.com
+
 ### Run Backend
 cd virtualai-backend
 mvn clean install
